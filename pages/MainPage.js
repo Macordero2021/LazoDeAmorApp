@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
 import Temu from '../assets/Imagenes/Temu.png';
@@ -6,11 +6,20 @@ import Shein from '../assets/Imagenes/Shein.png';
 import Amazon from '../assets/Imagenes/Amazon.webp';
 import Alibaba from '../assets/Imagenes/Alibaba.png';
 import Imagen1 from '../assets/Imagenes/Imagen1.jpg';
+import Logo from '../assets/Imagenes/Logo.jpeg';
+
 
 const MainPage = ({ navigation }) => {
+
   return (
     
     <ScrollView contentContainerStyle={styles.scrollContainer}>
+
+      <View style={styles.NameContainer}>
+        <Text style={styles.Name}>Lazo de Amor</Text>
+        <Image source={Logo} style={styles.logo} />
+      </View>
+
       <View style={styles.imageContainer}>
         <Image source={Imagen1} style={styles.imagePrincipal} />
         {/* Superposición negra semi-transparente */}
@@ -24,6 +33,7 @@ const MainPage = ({ navigation }) => {
         <Image source={Alibaba} style={styles.image} />
         <Image source={Temu} style={styles.image} />
       </View>
+
     </ScrollView>
   );
 };
@@ -34,6 +44,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f8f7ff',
   },
+
+  NameContainer: {
+    marginTop: 10, // Ajusta según tu diseño
+    marginBottom: 10, // Espacio entre el nombre de la empresa y la siguiente sección
+    flexDirection: 'row',
+    alignItems: 'center',
+    
+  },
+
+  Name: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#01161e', // Color del texto, puedes ajustarlo según tu diseño
+    textAlign: 'center',
+  },
+
+  logo: {
+    width: 50, // Ajusta el tamaño del logo según sea necesario
+    height: 520,
+    resizeMode: 'contain', // Mantiene la proporción del logo
+    marginLeft: 10, // Espacio entre el nombre de la empresa y el logo
+  },
+
   container: {
     flex: 1,
     alignItems: 'center',
